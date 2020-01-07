@@ -1,0 +1,42 @@
+Hibernate is an ORM tool
+ -> Used to map Java class to schema tables
+
+ORM  -> Object Relational Mapping
+   * Object -> Java Program
+   * Relational -> DB
+   * Mapping Object with Schema
+   
+Java (Object) will be converted to Table (tuple)
+
+
+1. Create a hibernate maven project
+
+2. Add hibernate and mysql dependency in pom.xml
+
+3. Create a class (Entity)  ABC.java, with the variables that needs to be stored
+	~ Also define @Id for primaryKey variable
+
+4. In main class, create a Session --> SessionFactory --> Configuration
+	~ Define configuration for hibernate.connection properties in hibernate.cfg.xml 
+		* driver_class = com.mysql.jdbc.Driver
+		* url = jdbc:mysql://localhost:3306/Marvel
+		* username = root
+		* password = '*****'
+		* Dialect
+		* hbm2ddl.auto = create/update/validate/create-drop/drop/create-only/none
+		
+	~ Configuration con = new Configuration.configure(hibernate.cfg.xml).addAnnotatedClass(ABC.class)\
+	~ ServiceRegistry serReg = new StandardServiceRegistryBuilder().applySettings(con.getProperty()).build();
+	~ SessionFactory seFa = con.buildSessionFactory(serReg);
+	~ Session ses = seFa.openSession();
+	~ Define a object obj1 to be stored in table
+	
+5. Each and every transformation of object to tuple will be considered as transaction
+	~ Create a transaction from session created above
+		Transaction trans = ses.beginTransaction
+		
+6. Store the object obj1 to table 
+	~ ses.save(obj1);
+
+7. Commit the transaction
+	~ trans.commit();
