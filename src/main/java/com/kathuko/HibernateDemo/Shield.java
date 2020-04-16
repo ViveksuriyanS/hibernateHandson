@@ -8,21 +8,31 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
-import javax.persistence.Transient;
+import javax.persistence.UniqueConstraint;
+
+// Persistence class
 
 @Entity // Makes the class as entity for mapping
-//@Table(name = "ShieldMarvel") // Changes the table name
+@Table(name = "ShieldMarvel", uniqueConstraints = { @UniqueConstraint(columnNames = "Char_Name") }) // Changes the table
+																									// name
 public class Shield {
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.AUTO) // GenerationType.IDENTITY
 	private int marvelId;
-	@Column(name = "Char_Name") // Changes the column name
+
+	@Column(name = "Char_Name", unique = true, nullable = false) // Changes the column name
 	private String name;
+
+	@Column(name = "Special_Ability", unique = false, nullable = false, length = 100)
 	private String power;
+
+	@Column(name = "Rating", unique = false, nullable = false, length = 3)
 	private int score;
+
 //	@Transient will be used for temporary variable, will not be stored in table
-	@OneToOne(targetEntity = Cast.class,fetch = FetchType.LAZY)
+	@OneToOne(targetEntity = Cast.class, fetch = FetchType.LAZY)
 	private Cast castInfo;
+
 	private boolean isAlive;
 
 	public String getName() {
@@ -88,3 +98,6 @@ public class Shield {
 	}
 
 }
+
+
+// Check optimistic lock and pessimistic lock

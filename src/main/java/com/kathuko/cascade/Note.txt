@@ -1,0 +1,16 @@
+Cascade
+
+-- Used while saving level_1 object level_2 object also should save the value automatically
+
+level_1_object contains
+ - variable1
+ - variable 2
+ - level_2_object
+ 
+Now, session.save(level_1_object) , should save all variable1, variable2 and level_2_object automatically
+
+This can be attained through CASCADING
+
+-- cascadeType.PERSIST -> ADD
+-- cascadeType.REMOVE  -> DELETE
+-- cascadeType.ALL     -> ALL

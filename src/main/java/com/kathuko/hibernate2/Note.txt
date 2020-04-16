@@ -1,0 +1,6 @@
+Hibernate2
+
+Includes
+
+@Embeddable annotation at class level
+@Embedded annotation at object level of parent class

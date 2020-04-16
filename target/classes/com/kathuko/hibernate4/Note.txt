@@ -1,0 +1,16 @@
+Hibernate2
+
+Includes
+@Embeddable annotation at class level
+@Embedded annotation at object level of parent class
+
+
+
++ Hibernate 4
+
+-- Using combined primaryKey
+Instead of @Id, we are using @EmbeddedID for using object as primary key
+
+Object primary key is combined attribute primary key
+
+And @Embeddable class should implement Serializable interface

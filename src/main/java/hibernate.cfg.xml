@@ -8,7 +8,7 @@
 		<property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
 		<property name="hibernate.connection.url">jdbc:mysql://localhost:3306/Marvel</property>
 		<property name="hibernate.connection.username">root</property>
-		<property name="hibernate.connection.password">MySql19#</property>
+		<property name="hibernate.connection.password"></property>
 		<!-- We use SQL8 so MySql8Dialect -->
 		<property name="hibernate.dialect">org.hibernate.dialect.MySQL8Dialect</property>
 		<!-- create -> every time drop table and create a new table -->

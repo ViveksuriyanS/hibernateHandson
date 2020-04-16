@@ -1,0 +1,30 @@
+Hibernate2
+
+Includes
+@Embeddable annotation at class level
+@Embedded annotation at object level of parent class
+
+
+
++ Hibernate 3
+
+When two Embedded object is introduced, there will be ambiguity in column name
+It needs to be resolved
+
+Address
+ - Street
+ - city
+ - State
+ - pincode
+ 
+@Embedded
+Address home_Address
+@Embedded
+Address office_Address
+
+  both home and office objects have same fields (Street, City, State, Pincode) in DB
+we can't have duplicate column name
+
+So we are introducing 
+
+@AttributeOverrides

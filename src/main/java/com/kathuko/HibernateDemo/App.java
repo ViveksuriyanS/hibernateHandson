@@ -89,3 +89,11 @@ public class App {
 	}
 
 }
+
+// Configuration -> It creates a configuration object by reading the configuration related details from .cfg.xml file 
+// SessionFactory -> Provides Session object to connect database from the application with the provided configuration details
+// Session -> It is used for interaction between the database and the application 
+// Query -> Used to query the DB	
+// Transaction -> Used to achieve data consistency, and roll back in case something goes wrong
+// First-Level / Session Cache (Implicit)-> By default Session object provides this until the session object is live
+// Second-Level Cache (Explicit) -> Used to store object across sessions by providing cache provider. EhCache is popular. 

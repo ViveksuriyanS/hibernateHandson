@@ -1,0 +1,9 @@
+Entity relation ship
+
+One To One
+ --> One entity will have One entity
+ --> One Man ** One Woman 
+ --> Only two tables will be created
+     ~ One for Man 
+     ~ One for woman
+ 

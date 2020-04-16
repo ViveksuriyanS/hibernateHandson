@@ -1,0 +1,3 @@
+Pagination can be done using 
+--> SetFirstResult
+--> SetMaxResult

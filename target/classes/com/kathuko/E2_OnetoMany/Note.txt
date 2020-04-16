@@ -1,0 +1,23 @@
+Entity relation ship
+
+One to Many
+-- One Entity will have Many Entity
+-- One User with multiple bank accounts
+-- Three tables will be created 
+     ~ one for user (Contains only user details)
+     ~ one for bank_accounts (Contains only bank account details)
+     ~ one for relation between user and bank account (contains primary key of both table)
+-- By default it creates 3 tables, if you don't want third table we can use Mapping
+ 		OneToMany(mappedBy = "VehicleObjectName_Defined in Vehicle Class")
+Eg
+
+create table UserOnetoMany (userId integer not null, userName varchar(255), primary key (userId)) engine=InnoDB
+create table UserOnetoMany_Vehicle (UserOnetoMany_userId integer not null, vehicles_vehicleId integer not null) engine=InnoDB
+create table Vehicle (vehicleId integer not null, vehicleName varchar(255), primary key (vehicleId)) engine=InnoDB
+insert into UserOnetoMany (userName, userId) values (?, ?)
+insert into Vehicle (vehicleName, vehicleId) values (?, ?)
+insert into Vehicle (vehicleName, vehicleId) values (?, ?)
+insert into UserOnetoMany_Vehicle (UserOnetoMany_userId, vehicles_vehicleId) values (?, ?)
+insert into UserOnetoMany_Vehicle (UserOnetoMany_userId, vehicles_vehicleId) values (?, ?)
+ 
+ 

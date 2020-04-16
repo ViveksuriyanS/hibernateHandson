@@ -1,0 +1,6 @@
+Entity relation ship
+
+When the data expected is not returned as expected, it might throw exception
+@NotFound() will ignore or throw exception
+ 
+ 

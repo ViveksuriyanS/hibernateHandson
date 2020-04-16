@@ -1,0 +1,8 @@
+Usually we can get data using 
+-- session.get() but it doesn't give any where condition
+
+So we move on with HQL, but in HQL, as the query gets complex, the code will become more complex
+-- And also, by writing the HQL query, it doesn't make any difference with SQL
+
+- To simplify it we use Criteria API
+-- So to gain restriction over where conditions, we use Criteria 

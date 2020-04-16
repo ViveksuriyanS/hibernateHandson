@@ -1,0 +1,46 @@
+Entity relation ship
+
+Many to Many
+-- Multiple Entity will have Many Entity
+-- Multiple cab can be used by multiple users
+-- Four tables will be created 
+     ~ one for user (Contains only user details)
+     ~ one for cab (Contains only bank account details)
+     ~ one for relation between user and cab (contains primary key of both table)
+     ~ one for relation between cab and user (contains primary key of both table)
+     
+-- By default it creates 4 tables, if you don't want relation tables we can use mappedBy
+
+Eg
+In the below example, it created only 3 tables, 
+   as we defined @ManyToManymappedBy="vehicles" in Vehicle.class
+
+alter table UserManytoMany_Vehicle drop foreign key FKqvjggvjdyyab0a7i3bgf2egb8
+alter table UserManytoMany_Vehicle drop foreign key FKf1pseejhgf86f60pgpb8j6552
+drop table if exists hibernate_sequence
+drop table if exists UserManytoMany
+drop table if exists UserManytoMany_Vehicle
+drop table if exists Vehicle
+create table hibernate_sequence (next_val bigint) engine=InnoDB
+insert into hibernate_sequence values ( 1 )
+
+
+create table UserManytoMany (userId integer not null, userName varchar(255), primary key (userId)) engine=InnoDB
+create table UserManytoMany_Vehicle (user_userId integer not null, vehicles_vehicleId integer not null) engine=InnoDB
+create table Vehicle (vehicleId integer not null, vehicleName varchar(255), primary key (vehicleId)) engine=InnoDB
+alter table UserManytoMany_Vehicle add constraint FKqvjggvjdyyab0a7i3bgf2egb8 foreign key (vehicles_vehicleId) references Vehicle (vehicleId)
+alter table UserManytoMany_Vehicle add constraint FKf1pseejhgf86f60pgpb8j6552 foreign key (user_userId) references UserManytoMany (userId)
+
+
+select next_val as id_val from hibernate_sequence for update
+update hibernate_sequence set next_val= ? where next_val=?
+select next_val as id_val from hibernate_sequence for update
+update hibernate_sequence set next_val= ? where next_val=?
+insert into UserManytoMany (userName, userId) values (?, ?)
+insert into UserManytoMany (userName, userId) values (?, ?)
+insert into Vehicle (vehicleName, vehicleId) values (?, ?)
+insert into Vehicle (vehicleName, vehicleId) values (?, ?)
+insert into UserManytoMany_Vehicle (user_userId, vehicles_vehicleId) values (?, ?)
+insert into UserManytoMany_Vehicle (user_userId, vehicles_vehicleId) values (?, ?)
+insert into UserManytoMany_Vehicle (user_userId, vehicles_vehicleId) values (?, ?)
+insert into UserManytoMany_Vehicle (user_userId, vehicles_vehicleId) values (?, ?)

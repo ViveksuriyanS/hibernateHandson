@@ -1,0 +1,28 @@
+Hibernate 7
+
+LAZY(Default) and EAGER fetch
+-- Lazy fetch is if session is closed, we cannot get data
+	* Query1 -- Only first level member variable will be initialized in get()
+	* Query2 -- Second level will be fetched on getter methods
+	* Once session is closed, cannot fetch data
+
+-- EAGER fetch is even if session is closed, we can fetch data.
+	* Query 1 & 2 -- Both level member variable will be initialized in get()
+	* Object fetch - Second level will be fetched on getter methods 
+    * Even after the session is closed, the data will be fetched from object
+
+_________	
+While session.get() -> does it fetch only the current Entity data or also the collection data?
+ -- It fetches only the Entity data
+ 	user = session.get(User,id)
+ -- If you want collection data we use getter method of collection, so  another query will be triggered
+    user.getListOfAddress() uses proxy class
+
+    
+    
+2 things to be note
+-> Way of data fetch
+  * Lazy -> 
+    ~ For first level entity data, one query will be fired
+    ~ For each and every other level collection data, one query will be fired
+  *  

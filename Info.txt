@@ -13,7 +13,7 @@ Java (Object) will be converted to Table (tuple)
 
 2. Add hibernate and mysql dependency in pom.xml
 
-3. Create a class (Entity)  ABC.java, with the variables that needs to be stored
+3. Create a POJO class (Entity)  ABC.java, with the variables that needs to be stored
 	~ Also define @Id for primaryKey variable
 
 4. In main class, create a Session --> SessionFactory --> Configuration
@@ -33,7 +33,7 @@ Java (Object) will be converted to Table (tuple)
 	
 5. Each and every transformation of object to tuple will be considered as transaction
 	~ Create a transaction from session created above
-		Transaction trans = ses.beginTransaction
+		Transaction trans = ses.beginTransaction()
 		
 6. Store the object obj1 to table 
 	~ ses.save(obj1);

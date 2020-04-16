@@ -1,0 +1,6 @@
+Hibernate 6
+
+so we are going to use list(Collection) here
+
+another way of using collection
+

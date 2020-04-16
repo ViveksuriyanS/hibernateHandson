@@ -2,7 +2,6 @@ package com.kathuko.HibernateDemo;
 
 import java.util.Date;
 
-import javax.persistence.Embeddable;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -14,7 +13,7 @@ import javax.persistence.TemporalType;
 @Entity
 public class Cast {
 	@Id // will be used only if we use @Entity
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.AUTO) // Used to auto set the value
 	private int id;
 	private String name;
 	private int age;

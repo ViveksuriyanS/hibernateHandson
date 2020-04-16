@@ -1,0 +1,39 @@
+Inheritance -- TABLE PER CLASS
+If an entity is extending another entity, by default it will be stored in a single table
+
+EntityParent	Entity_1	Entity_2
+ -> A_EP(PK)	-> A_1(PK)	-> A_2(PK)
+ -> B_EP		-> B_1		-> B_2
+ 
+EntityParent table will contain 
+-> A_EP
+-> B_EP	
+
+Entity_1 table will contain
+-> A_EP	
+-> B_EP
+-> A_1
+-> B_1
+
+Entity_2 table will contain	
+-> A_EP
+-> B_EP
+-> A_2		
+-> B_2
+
+Session.save(EntityParent)
+-> A_EP			Value
+-> B_EP			Value
+ 
+Session.save(Entity_1)
+-> A_EP			Value
+-> B_EP			Value
+-> A_1			Value
+-> B_1			Value
+
+
+Session.save(Entity_2)
+-> A_EP			Value
+-> B_EP			Value
+-> A_2			Value
+-> B_2			Value

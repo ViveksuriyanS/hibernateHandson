@@ -1,0 +1,12 @@
+Hibernate2 + Hibernate 3 - Hibernate 4
+
+
+Hibernate 5
+
+-- In Hibernate 3, we had two addresses, home and office
+what if I want to add addresses of the places that I have stayed and worked
+there might be N addresses
+
+so we are going to use Set/List(Collection) here
+
+
